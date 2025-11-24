@@ -29,16 +29,12 @@ while True:
     if not ret: break
     
     frame = cv2.resize(frame, (ANCHO_FOTO, ALTO_FOTO))
-    
-    # --- CAMBIO CLAVE AQUÍ ---
-    # Creamos una copia para dibujar en ella. 
-    # 'frame' se queda limpia para guardar, 'frame_display' es para ver en pantalla.
     frame_display = frame.copy() 
     
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = face_classifier.detectMultiScale(gray, 1.3, 5)
 
-    # Dibujar rectángulo verde EN LA COPIA (frame_display)
+    # Dibujar rectángulo verde EN LA COPIA 
     for (x, y, w, h) in faces:
         cv2.rectangle(frame_display, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
@@ -48,7 +44,7 @@ while True:
         if len(faces) > 0:
             (x, y, w, h) = faces[0]
             
-            # Recortamos usando 'frame' (la ORIGINAL LIMPIA)
+            # Recortamos usando 'frame' 
             rostro_recortado = frame[y:y+h, x:x+w]
             
             try:
@@ -64,7 +60,7 @@ while True:
             
             ultimo_tiempo = time.time()
             
-            # Efecto flash (Visual en la copia)
+            
             cv2.rectangle(frame_display, (0,0), (ANCHO_FOTO, ALTO_FOTO), (255,255,255), cv2.FILLED)
             cv2.imshow("Capturando Rostro", frame_display)
             cv2.waitKey(50) 
@@ -81,4 +77,5 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
 print(f"\n¡Listo! {count} fotos de ALTA CALIDAD guardadas.")
