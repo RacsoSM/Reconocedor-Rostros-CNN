@@ -1,9 +1,9 @@
 # Proyecto de Reconocimiento Facial con CNN
 
-#Este equipo esta conformado por:
-#Gastelum Inzunza Jose Armando
-#Rodriguez Lopez Said Armando
-#Santacruz Maldonado Oscar Said
+## Este equipo esta conformado por:
+## Gastelum Inzunza Jose Armando
+## Rodriguez Lopez Said Armando
+## Santacruz Maldonado Oscar Said
 
 Este proyecto utiliza Redes Neuronales Convolucionales (CNN) para detectar y reconocer rostros en tiempo real.
 
